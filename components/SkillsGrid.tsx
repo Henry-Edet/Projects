@@ -6,28 +6,32 @@ import {
   FaReact, 
   FaNodeJs, 
   FaFigma,
+  FaPython,
 } from 'react-icons/fa';
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiGraphql, SiAdobexd } from 'react-icons/si';
 
 type Skill = {
   name: string;
   level: number;
-  category: 'frontend' | 'backend' | 'design';
+  category: 'frontend' | 'backend' | 'design' | 'AI';
   icon: JSX.Element;
 };
 
 export function SkillsGrid() {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'frontend' | 'backend' | 'design'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'frontend' | 'backend' | 'design' | 'AI'>('all');
 
   const skills: Skill[] = [
-    { name: 'React', level: 90, category: 'frontend', icon: <FaReact className="text-[#61DAFB]" /> },
+    { name: 'React', level: 95, category: 'frontend', icon: <FaReact className="text-[#61DAFB]" /> },
     { name: 'Next.js', level: 85, category: 'frontend', icon: <SiNextdotjs className="text-black dark:text-white" /> },
     { name: 'TypeScript', level: 80, category: 'frontend', icon: <SiTypescript className="text-[#3178C6]" /> },
-    { name: 'Tailwind CSS', level: 88, category: 'frontend', icon: <SiTailwindcss className="text-[#06B6D4]" /> },
+    { name: 'Tailwind CSS', level: 97, category: 'frontend', icon: <SiTailwindcss className="text-[#06B6D4]" /> },
     { name: 'Node.js', level: 75, category: 'backend', icon: <FaNodeJs className="text-[#339933]" /> },
+    { name: 'Python', level: 96, category: 'backend', icon: <FaPython className="text-[#339978]" /> },
     { name: 'GraphQL', level: 70, category: 'backend', icon: <SiGraphql className="text-[#E535AB]" /> },
     { name: 'Figma', level: 85, category: 'design', icon: <FaFigma className="text-[#F24E1E]" /> },
+    { name: 'Tensorflow', level: 50, category: 'AI', icon: <SiGraphql className="text-[#FF6F00]" /> }, // Using GraphQL icon as a placeholder
     { name: 'Adobe XD', level: 75, category: 'design', icon: <SiAdobexd className="text-[#FF61F6]" /> },
+    { name: 'YOLO', level: 60, category: 'AI', icon: <FaPython className="text-[#FFD43B]" /> }, // Using Python icon as a placeholder
   ];
 
   const filteredSkills = activeCategory === 'all' 
@@ -38,7 +42,7 @@ export function SkillsGrid() {
     <div className="space-y-8">
       {/* Category Filter */}
       <div className="flex flex-wrap justify-center gap-3">
-        {['all', 'frontend', 'backend', 'design'].map((category) => (
+        {['all', 'frontend', 'backend', 'design', 'AI'].map((category) => (
           <button
             key={category}
             onClick={() => setActiveCategory(category as any)}
