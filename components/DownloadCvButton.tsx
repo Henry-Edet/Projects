@@ -4,7 +4,6 @@
 import { Button } from "@/components/ui/button";
 import { Download, Loader2 } from "lucide-react";
 import { useState } from "react";
-// import Henry from "@/public/files/Henry_Edet_CV.pdf";
 
 export function DownloadCvButton() {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +12,7 @@ export function DownloadCvButton() {
     setIsLoading(true);
     setTimeout(() => {
       const link = document.createElement('a');
-      link.href = '/Henry_Edet_CV.pdf'; // Adjust the path as necessary
+      link.href = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/files/Henry_Edet_CV.pdf`; // Adjust the path as necessary
       link.download = 'Henry_Edet_CV.pdf';
       document.body.appendChild(link);
       link.click();
@@ -27,7 +26,7 @@ export function DownloadCvButton() {
       variant="outline"
       onClick={handleDownload}
       disabled={isLoading}
-      className="gap-2 px-6 py-3 border border-gray-300 rounded-lg"
+      className="gap-2"
     >
       {isLoading ? (
         <Loader2 className="h-4 w-4 animate-spin" />

@@ -16,7 +16,7 @@ export function ProjectCard({ title, description, tags }: { title: string; descr
         </div>
         <Link 
             href ="#"
-            className="text-blue-600 dark:text-blue-400 hover:underline mt-auto self-start"
+            className="flex py-4 text-blue-600 dark:text-blue-400 hover:underline mt-auto self-start"
         >
             View details →
         </Link>

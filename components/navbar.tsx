@@ -9,7 +9,7 @@ import { useTheme } from "next-themes";
 
 const links = [
   { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
+  { name: "About Me", href: "/about-me" },
   { name: "Skills", href: "/skills" },
   { name: "Blog", href: "/blog" },
 ];

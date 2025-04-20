@@ -2,7 +2,6 @@
 import Link from "next/link";
 import Image from 'next/image';
 import profilePic from "@/app/public/images/hendry.png"
-import { Download } from "lucide-react";
 import { DownloadCvButton } from "@/components/DownloadCvButton";
 
 export default function Home() {
@@ -17,7 +16,7 @@ export default function Home() {
             className="object-cover"
             priority
           />
-      </div>
+        </div>
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-5xl md:text-6xl font-bold mb-6">
           Hi, I'm <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent">Henry Edet</span>
