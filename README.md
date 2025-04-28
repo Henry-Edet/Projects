@@ -1,6 +1,6 @@
 # Modern Portfolio with Animated Background
 
-![Portfolio Screenshot](./public/screenshots/portfolio-preview.png)
+![Portfolio Screenshot](./public/images/screenshots/portfolio-preview.png)
 
 A sleek, modern portfolio built with Next.js featuring an interactive animated background and responsive design.
 
