@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { AnimatedBackground } from '@/components/AnimatedBackground';
 
 // Font setup
 const spaceGrotesk = SpaceGrotesk({
@@ -48,6 +49,7 @@ export default function RootLayout({
             <Navbar />
 
             <main className="flex-1 container max-w-6xl mx-auto px-4 md:px-6 py-24">
+            <AnimatedBackground />
               {children}
             </main>
 
