@@ -29,18 +29,18 @@ A sleek, modern portfolio built with Next.js featuring an interactive animated b
 - npm/yarn/pnpm
 
 ### Installation
-    ```bash
+    
     git clone https://github.com/yourusername/your-portfolio.git
     cd your-portfolio
     npm install
 
 ##    Development
-    ```bash
+    
     npm run dev
     Open  http://localhost:3000
 
 ##    Build for Production
-    ```bash
+    
     npm run build
 
 ##    📂 Project Structure
