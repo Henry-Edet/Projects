@@ -1,13 +1,15 @@
-import fs from 'fs';
+// app/blog/[slug]/page.tsx
+import { notFound } from 'next/navigation';
 import path from 'path';
+import fs from 'fs/promises'; // ✅ use promises
+import * as fsSync from 'fs'; // For synchronous methods like existsSync
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const postsDir = path.join(process.cwd(), 'app/blog/posts');
   try {
-    const files = fs.readdirSync(postsDir);
+    const files = await fs.readdir(postsDir);
     return files.map((file) => ({
       slug: file.replace(/\.mdx?$/, ''),
     }));
@@ -17,26 +19,33 @@ export async function generateStaticParams() {
   }
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
+//Proxy Promise — a special kind of async object that looks like an object but needs to be awaited because it's dynamically injected by Next.js in certain scenarios.
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function BlogPost({ params }: Props) {
+  const resolvedParams = await params;
   const postPath = path.join(
     process.cwd(),
     'app/blog/posts',
-    `${params.slug}.mdx`
+    `${resolvedParams.slug}.mdx`
   );
+  console.log('slug:', resolvedParams.slug);
 
-  if (!fs.existsSync(postPath)) {
+  try {
+    const file = await fs.readFile(postPath, 'utf8');
+    const { content, data } = matter(file);
+
+    return (
+      <article className="max-w-2xl mx-auto py-12 px-4">
+        <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
+        <div className="prose dark:prose-invert max-w-none">
+          <MDXRemote source={content} />
+        </div>
+      </article>
+    );
+  } catch (err) {
     return notFound();
   }
-
-  const fileContents = fs.readFileSync(postPath, 'utf8');
-  const { content, data } = matter(fileContents);
-
-  return (
-    <article className="max-w-2xl mx-auto py-12 px-4">
-      <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
-      <div className="prose dark:prose-invert max-w-none">
-        <MDXRemote source={content} />
-      </div>
-    </article>
-  );
 }

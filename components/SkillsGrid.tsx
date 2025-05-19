@@ -29,9 +29,9 @@ export function SkillsGrid() {
     { name: 'Python', level: 96, category: 'backend', icon: <FaPython className="text-[#339978]" /> },
     { name: 'GraphQL', level: 70, category: 'backend', icon: <SiGraphql className="text-[#E535AB]" /> },
     { name: 'Figma', level: 85, category: 'design', icon: <FaFigma className="text-[#F24E1E]" /> },
-    { name: 'Tensorflow', level: 50, category: 'AI', icon: <SiGraphql className="text-[#FF6F00]" /> }, // Using GraphQL icon as a placeholder
+    { name: 'Tensorflow', level: 50, category: 'AI', icon: <SiGraphql className="text-[#FF6F00]" /> },
     { name: 'Adobe XD', level: 75, category: 'design', icon: <SiAdobexd className="text-[#FF61F6]" /> },
-    { name: 'YOLO', level: 60, category: 'AI', icon: <FaPython className="text-[#FFD43B]" /> }, // Using Python icon as a placeholder
+    { name: 'YOLO', level: 60, category: 'AI', icon: <FaPython className="text-[#FFD43B]" /> },
   ];
 
   const filteredSkills = activeCategory === 'all' 
@@ -46,7 +46,7 @@ export function SkillsGrid() {
           <button
             key={category}
             onClick={() => setActiveCategory(category as any)}
-            className={`px-4 py-2 rounded-full text-sm font-medium capitalize transition-colors ${
+            className={`px-4 py-2 rounded-full text-sm font-medium capitalize transition-colors whitespace-nowrap ${
               activeCategory === category
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
@@ -58,23 +58,23 @@ export function SkillsGrid() {
       </div>
 
       {/* Skills Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {filteredSkills.map((skill, i) => (
           <motion.div
             key={skill.name}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="p-6 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors flex flex-col"
+            className="p-5 border border-gray-200 dark:border-gray-700 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors flex flex-col overflow-hidden"
           >
-            <div className="flex items-center gap-3 mb-3">
-              <div className="text-2xl">
-                {skill.icon}
-              </div>
-              <span className="font-medium">{skill.name}</span>
+            <div className="flex items-center gap-3 mb-3 min-w-0">
+              <div className="text-xl flex-shrink-0">{skill.icon}</div>
+              <span className="font-medium text-sm text-ellipsis overflow-hidden whitespace-nowrap">
+                {skill.name}
+              </span>
             </div>
-            
-            {/* Advanced Proficiency Visualization */}
+
+            {/* Proficiency Visualization */}
             <div className="mt-auto space-y-2">
               <div className="flex justify-between text-xs text-gray-500">
                 <span>Proficiency</span>
@@ -84,11 +84,7 @@ export function SkillsGrid() {
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${skill.level}%` }}
-                  transition={{ 
-                    delay: i * 0.1 + 0.3, 
-                    duration: 0.8,
-                    type: 'spring'
-                  }}
+                  transition={{ delay: i * 0.1 + 0.3, duration: 0.8, type: 'spring' }}
                   className={`h-2 rounded-full ${
                     skill.level > 80 ? 'bg-green-500' :
                     skill.level > 60 ? 'bg-blue-500' :

@@ -49,16 +49,16 @@ export default async function BlogPage() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto py-12 px-4">
-      <h1 className="text-4xl font-bold mb-8">Catching up on tech & what's trending!</h1>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-10 text-center sm:text-left">Catching up on tech & what's trending!</h1>
       <div className="space-y-8">
         {allPosts.map((post) => (
-          <article key={post.id} className="border-b pb-8">
+          <article key={post.id} className="border-b border-gray-200 dark:border-gray-700 pb-6 sm:pb-8 transition-all">
             <Link 
               href={post.isLocal ? `/blog/${post.slug}` : post.url || '#'}
               target={post.isLocal ? undefined : '_blank'}
             >
-              <h2 className="text-2xl font-bold hover:text-blue-600">
+              <h2 className="text-xl sm:text-2xl font-semibold hover:text-blue-600 transition-colors">
                 {post.title}
                 {!post.isLocal && (
                   <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
@@ -66,10 +66,10 @@ export default async function BlogPage() {
                   </span>
                 )}
               </h2>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-600 mt-2 text-sm sm:text-base line-clamp-3">
                 {post.excerpt || post.content?.substring(0, 150) + '...'}
               </p>
-              <time className="text-sm text-gray-500">
+              <time className="text-xs sm:text-sm text-gray-500 block mt-2">
                 {new Date(post.date).toLocaleDateString()}
               </time>
             </Link>
