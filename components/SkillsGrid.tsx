@@ -46,11 +46,13 @@ export function SkillsGrid() {
           <button
             key={category}
             onClick={() => setActiveCategory(category as any)}
-            className={`px-4 py-2 rounded-full text-sm font-medium capitalize transition-colors whitespace-nowrap ${
-              activeCategory === category
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
-            }`}
+            className={`px-4 py-2 rounded-full text-sm font-medium capitalize transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-400
+              ${
+                activeCategory === category
+                  ? 'bg-blue-600 text-white border-blue-600'
+                  : 'bg-white text-blue-700 border-blue-500 hover:bg-blue-50 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-700'
+              }`}
+            
           >
             {category === 'all' ? 'All Skills' : category}
           </button>

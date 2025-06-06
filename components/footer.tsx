@@ -4,7 +4,7 @@ import { Github, Linkedin, Youtube, Gitlab } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t py-8">
+    <footer className="relative z-10 border-t py-8">
       <div className="container max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-6 sm:gap-4 text-center sm:text-left">
           
@@ -20,7 +20,7 @@ export default function Footer() {
               href="https://github.com/Henry-Edet"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="relative z-10 p-2 rounded-full text-gray-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800 transition-all"
             >
               <Github className="h-6 w-6 sm:h-5 sm:w-5" />
             </Link>
@@ -28,7 +28,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/henry-edet-1b0513300/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="relative z-10 p-2 rounded-full text-blue-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800 transition-all"
             >
               <Linkedin className="h-6 w-6 sm:h-5 sm:w-5" />
             </Link>
@@ -36,7 +36,7 @@ export default function Footer() {
               href="https://www.youtube.com/@henryedcodes"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="relative z-10 p-2 rounded-full text-red-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800 transition-all"
             >
               <Youtube className="h-6 w-6 sm:h-5 sm:w-5" />
             </Link>
@@ -44,7 +44,8 @@ export default function Footer() {
               href="https://gitlab.com/henry_Edet/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="relative z-10 p-2 rounded-full text-orange-600 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800 transition-all"
+
             >
               <Gitlab className="h-6 w-6 sm:h-5 sm:w-5" />
             </Link>

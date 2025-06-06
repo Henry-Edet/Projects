@@ -38,18 +38,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${geistMono.variable}`}>
-      <body className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <body 
+        className={`${spaceGrotesk.variable} ${ geistMono.variable }"bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950`}
+        style={{ backgroundColor: "var(--color-background)", color: "var(--color-foreground)" }}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+
+          <AnimatedBackground />
+
+          {/* Main layout structure */}
           <div className="min-h-screen flex flex-col">
             <Navbar />
 
             <main className="flex-1 container max-w-6xl mx-auto px-4 md:px-6 py-24">
-            <AnimatedBackground />
+            
               {children}
             </main>
 

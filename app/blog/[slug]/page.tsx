@@ -5,6 +5,10 @@ import fs from 'fs/promises'; // ✅ use promises
 import * as fsSync from 'fs'; // For synchronous methods like existsSync
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import GiscusComments from '@/components/Giscus';
+
+
+
 
 export async function generateStaticParams() {
   const postsDir = path.join(process.cwd(), 'app/blog/posts');
@@ -38,11 +42,12 @@ export default async function BlogPost({ params }: Props) {
     const { content, data } = matter(file);
 
     return (
-      <article className="max-w-2xl mx-auto py-12 px-4">
-        <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
-        <div className="prose dark:prose-invert max-w-none">
+      <article className="w-full py-12 px-4">
+        <h1 className="text-3xl font-bold mb-6">{data.title}</h1>
+        <div className="prose prose-md dark:prose-invert mx-auto px-4">
           <MDXRemote source={content} />
         </div>
+        <GiscusComments />
       </article>
     );
   } catch (err) {

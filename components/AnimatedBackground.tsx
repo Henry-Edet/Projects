@@ -114,7 +114,7 @@ export function AnimatedBackground() {
         ctx.translate(shape.x, shape.y);
         ctx.rotate(shape.rotation * Math.PI / 180);
         ctx.fillStyle = shape.color;
-        ctx.globalAlpha = 0.15;
+        ctx.globalAlpha = 0.6; //handles color of shapes
         
         shapeDrawers[shape.type](ctx, 0, 0, shape.size);
         

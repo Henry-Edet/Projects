@@ -45,7 +45,7 @@ export default function AboutMe() {
         <h4 className="text-5xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-pink-300 to-blue-600 bg-clip-text text-transparent">Education</h4>
         <p className="text-xl text-gray-600 mb-8">
           <b>BSc Sofware Engineering(B.Eng)</b><br/>
-          Near East University, Lefkosa, Cyprus<br/>
+          Near East University, Mersin 10, Turkey<br/>
         </p>
         <h4 className="text-5xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-pink-300 to-blue-600 bg-clip-text text-transparent">Certificates</h4>
         <p className="text-xl text-gray-600 mb-8">

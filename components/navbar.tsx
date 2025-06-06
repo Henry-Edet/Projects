@@ -10,6 +10,7 @@ import { useState } from "react";
 const links = [
   { name: "Home", href: "/" },
   { name: "About Me", href: "/about-me" },
+  {name: "Books", href: "/books"},
   { name: "Skills", href: "/skills" },
   { name: "Blog", href: "/blog" },
 ];
