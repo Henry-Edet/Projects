@@ -10,15 +10,19 @@ import {
 } from 'react-icons/fa';
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiGraphql, SiAdobexd } from 'react-icons/si';
 
+// Define allowed categories using const assertion
+const categories = ['all', 'frontend', 'backend', 'design', 'AI'] as const;
+type Category = typeof categories[number];
+
 type Skill = {
   name: string;
   level: number;
-  category: 'frontend' | 'backend' | 'design' | 'AI';
+  category: Exclude<Category, 'all'>;
   icon: JSX.Element;
 };
 
 export function SkillsGrid() {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'frontend' | 'backend' | 'design' | 'AI'>('all');
+  const [activeCategory, setActiveCategory] = useState<Category>('all');
 
   const skills: Skill[] = [
     { name: 'React', level: 95, category: 'frontend', icon: <FaReact className="text-[#61DAFB]" /> },
@@ -42,17 +46,16 @@ export function SkillsGrid() {
     <div className="space-y-8">
       {/* Category Filter */}
       <div className="flex flex-wrap justify-center gap-3">
-        {['all', 'frontend', 'backend', 'design', 'AI'].map((category) => (
+        {categories.map((category) => (
           <button
             key={category}
-            onClick={() => setActiveCategory(category as any)}
+            onClick={() => setActiveCategory(category)}
             className={`px-4 py-2 rounded-full text-sm font-medium capitalize transition-colors whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-400
               ${
                 activeCategory === category
                   ? 'bg-blue-600 text-white border-blue-600'
                   : 'bg-white text-blue-700 border-blue-500 hover:bg-blue-50 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-700'
               }`}
-            
           >
             {category === 'all' ? 'All Skills' : category}
           </button>

@@ -1,33 +1,35 @@
 // components/MDXComponents.tsx
 'use client';
 
-import NextImage from 'next/image'; // Renamed to avoid conflict
-import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
+import NextImage, { ImageProps } from 'next/image';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { useTheme } from 'next-themes';
+import { useMemo } from 'react';
+import * as React from 'react';
+
+type CustomImageProps = ImageProps & { alt?: string };
 
 const components = {
-  // Handle markdown images: ![Alt text](path)
-  img: (props: any) => (
-      <NextImage
-        {...props}
-        alt={props.alt || ''}
-        width={800}
-        height={600}
-        className="w-full md:w-3/4 mx-auto rounded-lg border"
-        unoptimized={props.src?.endsWith('.gif')}
-      />
+  img: (props: CustomImageProps) => (
+    <NextImage
+      {...props}
+      alt={props.alt || ''}
+      width={800}
+      height={600}
+      className="w-full md:w-3/4 mx-auto rounded-lg border"
+      unoptimized={props.src?.toString().endsWith('.gif')}
+    />
   ),
-  // Handle JSX <Image> component
-  Image: (props: any) => (
+  Image: (props: CustomImageProps) => (
     <NextImage
       {...props}
       alt={props.alt || ''}
       width={800}
       height={600}
       className={`w-full h-auto rounded-lg ${props.className || ''}`}
-      unoptimized={props.src?.endsWith('.gif')}
+      unoptimized={props.src?.toString().endsWith('.gif')}
     />
   ),
   Video: ({ src, caption }: { src: string; caption?: string }) => (
@@ -39,7 +41,7 @@ const components = {
           poster={src.replace('.mp4', '.jpg')}
         >
           <source src={src} type="video/mp4" />
-          Your browser doesn't support HTML5 video.
+          Your browser doesn’t support HTML5 video.
         </video>
       </div>
       {caption && (
@@ -54,27 +56,37 @@ const components = {
   ),
 };
 
-export async function MDXContent({ source }: { source: string }) {
+export function MDXContent({ source }: { source: string }) {
   const { resolvedTheme } = useTheme();
 
-  const mdxSource = await serialize(source, {
-    mdxOptions: {
-      rehypePlugins: [
-        [
-          rehypePrettyCode,
-          {
-            theme: resolvedTheme === 'dark' ? 'github-dark' : 'github-light',
-            keepBackground: true,
-            onVisitLine(node: any) {
-              if (node.children.length === 0) {
-                node.children = [{ type: 'text', value: ' ' }];
-              }
+  const mdxSource = useMemo(() => {
+    return serialize(source, {
+      mdxOptions: {
+        rehypePlugins: [
+          [
+            rehypePrettyCode,
+            {
+              theme: resolvedTheme === 'dark' ? 'github-dark' : 'github-light',
+              keepBackground: true,
+              onVisitLine(node: { children: unknown[] }) {
+                if (node.children.length === 0) {
+                  node.children = [{ type: 'text', value: ' ' }];
+                }
+              },
             },
-          },
+          ],
         ],
-      ],
-    },
-  });
+      },
+    });
+  }, [source, resolvedTheme]);
 
-  return <MDXRemote {...mdxSource} components={components} />;
+  const [rendered, setRendered] = React.useState<MDXRemoteSerializeResult<Record<string, unknown>> | null>(null);
+
+  React.useEffect(() => {
+    mdxSource.then(setRendered);
+  }, [mdxSource]);
+
+  if (!rendered) return <p className="text-center py-6">Loading content...</p>;
+
+  return <MDXRemote {...rendered} components={components} />;
 }

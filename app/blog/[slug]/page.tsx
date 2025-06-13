@@ -2,7 +2,6 @@
 import { notFound } from 'next/navigation';
 import path from 'path';
 import fs from 'fs/promises'; // ✅ use promises
-import * as fsSync from 'fs'; // For synchronous methods like existsSync
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import GiscusComments from '@/components/Giscus';
@@ -51,6 +50,7 @@ export default async function BlogPost({ params }: Props) {
       </article>
     );
   } catch (err) {
+    console.log('Error reading post file:', err);
     return notFound();
   }
 }

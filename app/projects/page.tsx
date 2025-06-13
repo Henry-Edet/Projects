@@ -38,7 +38,7 @@ export default function ProjectsPage() {
           My <span className="bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">Projects</span>
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400">
-          Here's what I've been building recently
+          Here&apos;s what I&apos;ve been building recently
         </p>
       </div>
       
