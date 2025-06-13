@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 export default function BooksPage() {
-  const [progress, setProgress] = useState(62); // Adjust this as your book gets closer to launch
+  const [progress] = useState(62); // Adjust this as your book gets closer to launch
   const [launchDate] = useState(new Date('2025-07-01T00:00:00'));
   const [timeLeft, setTimeLeft] = useState('');
 
@@ -35,7 +35,7 @@ export default function BooksPage() {
       <h1 className="text-4xl font-bold mb-4">📚 Book Launch</h1>
       <p className="mb-6 text-gray-600 dark:text-gray-400">
         <b>📖 Coming Soon: Stories that bite.</b>
-        They're not just books. They're confessions wrapped in fiction.
+        They&apos;re not just books. They&apos;re confessions wrapped in fiction.
         The wait will be worth every word. Your next favorite read is {progress}% complete.
       </p>
 

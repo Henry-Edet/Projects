@@ -19,10 +19,10 @@ export default function Home() {
         </div>
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-5xl md:text-6xl font-bold mb-6">
-          Hi, I'm <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent">Henry Edet</span>
+          Hi, I&apos;m <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent">Henry Edet</span>
         </h1>
         <p className="text-xl text-gray-600 mb-8">
-          I'm a Software Engineer & Full-stack developer.
+          I&apos;m a Software Engineer & Full-stack developer.
         </p>
 
         <div className="flex flex-col items-center gap-6">

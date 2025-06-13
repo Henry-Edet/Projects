@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk as SpaceGrotesk, Geist_Mono as GeistMono } from "next/font/google";
+import { Space_Grotesk as SpaceGrotesk, Geist_Mono as GeistMono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Navbar from "@/components/navbar";

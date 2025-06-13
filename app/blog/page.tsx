@@ -50,7 +50,7 @@ export default async function BlogPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-10 text-center sm:text-left">Catching up on tech & what's trending!</h1>
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-10 text-center sm:text-left">Catching up on tech &amp; what&apos;s trending!</h1>
       <div className="space-y-8">
         {allPosts.map((post) => (
           <article key={post.id} className="border-b border-gray-200 dark:border-gray-700 pb-6 sm:pb-8 transition-all">

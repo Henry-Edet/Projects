@@ -1,6 +1,14 @@
 // app/api/blogger/route.ts
 import { NextResponse } from 'next/server';
 
+type BloggerPost = {
+  id: string;
+  title: string;
+  content: string;
+  published: string;
+  url: string;
+};
+
 export async function GET() {
   const BLOGGER_API_KEY = process.env.BLOGGER_API_KEY;
   const BLOG_ID = process.env.NEXT_PUBLIC_BLOG_ID;
@@ -13,14 +21,18 @@ export async function GET() {
     if (!res.ok) throw new Error('Blogger API failed');
     
     const data = await res.json();
-    return NextResponse.json(data.items.map((post: any) => ({
+
+    const formattedPosts = data.items.map((post: BloggerPost) => ({
       id: post.id,
       title: post.title,
       content: post.content,
       date: post.published,
-      url: post.url
-    })));
+      url: post.url,
+    }));
+
+    return NextResponse.json(formattedPosts);
   } catch (error) {
+    console.error('API route failed:', error);
     return NextResponse.json(
       { error: 'Failed to fetch Blogger posts' },
       { status: 500 }
