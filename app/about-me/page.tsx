@@ -19,7 +19,7 @@ export default function AboutMe() {
         <h1 className="text-5xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-pink-300 to-blue-600 bg-clip-text text-transparent">
           About Me
         </h1>
-        <p className="text-xl text-gray-600 mb-8">
+        <p className="text-xl text-neutral-600 mb-8">
           I am a Software Engineer with experience in designing software architecture and enterprise level solutions. 
           I co-founded a tech community at Near East University (TRNC) → <Link href="https://codecrafters.rweru.com" className="hover:text-purple-900">CODECRAFTERS DEV COMMUNITY</Link> which enabled me have the privilege and opportunity to demonstrate success in mentoring engineers.<br/>
           During this period i came across a bevy of engineers with different personas; this enabled me build resilience in character and sharpened my leadership wits.<br/>
@@ -27,7 +27,7 @@ export default function AboutMe() {
           I am also an author of three unpublished books, <b><i>Precocious Natives</i></b>, <b><i>Wormwood</i></b> and <b><i>Deshabille</i></b>.<br/>
         </p><br/>
         <h4 className="text-5xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-pink-300 to-blue-600 bg-clip-text text-transparent">Professional Experience</h4>
-        <p className="text-xl text-gray-600 mb-8">
+        <p className="text-xl text-neutral-600 mb-8">
           09/23  - <b>Software Intern</b><br/>
           At the Near East Robotics Lab, i developed a library management system for near east library<br/>
           I also implemented a database system for it using postgreSQL. I had the privilege of collaborating with different teams to ensure it was successful.<br/>
@@ -43,12 +43,12 @@ export default function AboutMe() {
           <i>Skill Acquired</i>: <b>Leadership, Teamwork, Communication, Project Management, React, Arduino, solidworks simulations.</b><br/><br/>
         </p>
         <h4 className="text-5xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-pink-300 to-blue-600 bg-clip-text text-transparent">Education</h4>
-        <p className="text-xl text-gray-600 mb-8">
+        <p className="text-xl text-neutral-600 mb-8">
           <b>BSc Sofware Engineering(B.Eng)</b><br/>
           Near East University, Mersin 10, Turkey<br/>
         </p>
         <h4 className="text-5xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-pink-300 to-blue-600 bg-clip-text text-transparent">Certificates</h4>
-        <p className="text-xl text-gray-600 mb-8">
+        <p className="text-xl text-neutral-600 mb-8">
           <b>AWS Solutions Architect (Udemy.com)</b><br/>
           {/* <i>Skill Acquired</i>: <b>HTML, CSS, JavaScript, React, Firebase, Cloud Computing.</b><br/><br/> */}
 
