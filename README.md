@@ -70,4 +70,4 @@ MIT License - See LICENSE.md
 
 ###    💻 Developed by [HENRY P. EDET]
 ###    📧 Contact: penieledet@icloud.com
-###    🔗 Live Demo: COMING SOO
+###    🔗 Live Demo: COMING SO
