@@ -4,7 +4,7 @@
 
 A sleek, modern portfolio built with Next.js featuring an interactive animated background and responsive design.
 
-## ✨ Features
+## ✨ Features:
 
 - **Animated Canvas Background** - Floating geometric shapes with smooth motion
 - **Full Responsiveness** - Mobile-first design that works on all devices
